@@ -2,7 +2,9 @@ import axios from "axios";
 import Link from "next/link";
 
 export default async function Home() {
-  const response = await axios.get("http://localhost:3000/api/users");
+  const response = await axios.get(
+    "https://new-next-js-prisma-example-1.vercel.app/api/users"
+  );
   console.log(response.data);
 
   return (
