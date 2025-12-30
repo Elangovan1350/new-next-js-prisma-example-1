@@ -1,6 +1,11 @@
 import axios from "axios";
 import Link from "next/link";
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
 export default async function Home() {
   const response = await axios.get(
     "https://new-next-js-prisma-example-1.vercel.app/api/users"
@@ -16,7 +21,7 @@ export default async function Home() {
         Go to Users API
       </Link>
       <li>
-        {response.data.users.map((user: any) => (
+        {response.data.users.map((user: User) => (
           <Link href={`/api/users/${user.id}`} key={user.id}>
             <div className="p-2 bg-amber-300 m-2 text-indigo-700 font-bold rounded-lg inline-block select-none">
               <p>{user.id}</p>
